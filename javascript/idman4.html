@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="" id="price">
+    </div>
+    <div>
+        <button onclick="calc()">Calc</button>
+    </div>
+
+</body>
+<script>
+    //4) Ekrana bir input bir buton koy. Butona tıkladığında inputtan aldığı değerin KDV li halini console a yazsın.
+
+    function calc(){
+        var price = document.getElementById('price').value;
+        console.log(price * 1.18);
+    }
+</script>
+</html>

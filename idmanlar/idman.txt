@@ -9,4 +9,5 @@
 
 5) Ekrana bir buton koy. Butona her tıkladığında random bir sayı oluşsun.( 1-300 arası ) Bu sayı kadar buton sağa gitsin. margin-left
 
-6) 
+6) Ekrana 3 tane AT resmi koy ve bir buton koy.  Start butonuna bastığında her at 0-100 arası random bir değer alığ sağa gidecek. (her saniyede)
+Bitiş çizgisine geldiğinde kim yarışı kazanırsa onu yaz ve oyunu durdur.
