@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="btn" onclick="genisle()">Genişleyen buton</button>
+
+</body>
+<script>
+//Ekrana bir buton koy. Butona her tıkladığında butonun genişliği 20 px artsın
+
+var buttonWidth = 100;
+
+function genisle(){
+
+    buttonWidth += 20;
+
+    document.getElementById('btn').style.width = buttonWidth + "px";
+}
+
+</script>
+</html>
