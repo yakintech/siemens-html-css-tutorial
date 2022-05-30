@@ -1,2 +1,12 @@
 1) Ekrana bir buton bir input koy. Butona tıkladığında inputtaki değer kadar butona width ve height versin.
 ** Inputa negatif sayı giremesin
+
+2) Ekrana bir buton koy. Butona her tıkladığında butonun genişliği ve yüksekliğini bir random sayı belirlesin (sayı 1 ile 400 arasında olacak)
+
+3) Ekrana iki input ve bir buton koy. Butona tıkladığında iki inputtan aldığı değerleri birleştirip BÜYÜTEREK console a yazsın. Örneğin Çağatay ve Yıldız girdi. "ÇAĞATAYYILDIZ" yazacak.
+
+4) Ekrana bir input bir buton koy. Butona tıkladığında inputtan aldığı değerin KDV li halini console a yazsın.
+
+5) Ekrana bir buton koy. Butona her tıkladığında random bir sayı oluşsun.( 1-300 arası ) Bu sayı kadar buton sağa gitsin. margin-left
+
+6) 

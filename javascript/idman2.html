@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="calc()" id="btn">Calc</button>
+</body>
+<script>
+    //2) Ekrana bir buton koy. Butona her tıkladığında butonun genişliği ve yüksekliğini bir random sayı belirlesin (sayı 0 ile 400 arasında olacak)
+
+    function calc(){
+        var randomNumber = Math.floor(Math.random() * 400);
+
+        document.getElementById('btn').style.width = randomNumber + "px";
+        document.getElementById('btn').style.height = randomNumber + "px";
+
+    }
+
+</script>
+</html>
