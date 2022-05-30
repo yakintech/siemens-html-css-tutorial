@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p id="title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis id modi rem porro doloremque cum
+            voluptates nihil veritatis vel, vitae, quis aperiam ex commodi repellat minima mollitia voluptas quia animi!
+        </p>
+        <button onclick="change()">Change Content</button>
+
+    </div>
+
+    <div>
+        <label>Name: </label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label>Result: </label>
+        <label id="result">0</label>
+    </div>
+    <div>
+        <button onclick="upperName()">Upper</button>
+    </div>
+
+</body>
+<script>
+
+    //Bu fonksiyon önce inputtaki değeri alacak. Daha sonra bu değeri aşağıda IDsi result olan label a büyük harf olarak yazdıracağım
+    function upperName() {
+
+        var inputValue = document.getElementById('name').value;
+        document.getElementById('result').innerHTML = inputValue.toUpperCase();
+    
+    }
+
+    function change() {
+        //id si title olan elementin içerisine ÇAĞATAY yazacağım
+        document.getElementById('title').innerHTML = "Çağatay"
+        document.getElementById('title').style.color = 'tomato'
+    }
+
+</script>
+
+</html>
