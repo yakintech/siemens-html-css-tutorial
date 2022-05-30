@@ -1,0 +1,2 @@
+1) Ekrana bir buton bir input koy. Butona tıkladığında inputtaki değer kadar butona width ve height versin.
+** Inputa negatif sayı giremesin
