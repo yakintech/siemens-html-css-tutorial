@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        height: 100px;
+        width: 200px;
+        position: relative
+    }
+
+    button {
+        width: 200px;
+        height: 100px;
+        margin-left: 10px;
+
+    }
+
+    hr {
+        height: 550px;
+        position: fixed;
+        margin-right: 20px;
+        top: 0px;
+        border: 1px solid red;
+    }
+</style>
+
+<body style="background-color: rgb(87, 160, 87)">
+
+    <div>
+        <img id="at1" src="https://i0.wp.com/shiftdelete.net/wp-content/uploads/2018/05/aYBjv5.jpg" alt="">
+    </div>
+    <div>
+        <img id="at2" src="https://blog.sembolfal.com/content/images/2019/04/at-figuru.jpg" alt="" srcset="">
+    </div>
+    <div>
+        <img id="at3"
+            src="https://iasbh.tmgrup.com.tr/6a0363/1200/627/0/28/708/399?u=https://isbh.tmgrup.com.tr/sbh/2020/06/27/ruyada-at-gormek-nedir-ne-anlama-gelir-ruyada-beyaz-siyah-kahverengi-at-gormek-ruya-tabirleri-1593263179574.jpg"
+            alt="" srcset="">
+    </div>
+
+    <hr id="finishLine">
+
+
+    <div>
+        <button onclick="start()">Start</button>
+    </div>
+
+</body>
+<script>
+
+    var hrLeft = screen.width * 0.8;
+
+
+    document.getElementById('finishLine').style.left = hrLeft + "px";
+
+
+    var imgLeft = 10;
+    document.getElementById('at1').style.left = imgLeft + "px";
+    document.getElementById('at2').style.left = imgLeft + "px";
+    document.getElementById('at3').style.left = imgLeft + "px";
+
+
+    var at1left = 10;
+    var at2left = 10;
+    var at3left = 10;
+
+    function start() {
+
+        var audio = new Audio('horse.wav');
+        audio.play();
+
+        var interval = setInterval(() => {
+
+            if ((at1left + 200) > hrLeft || (at2left + 200) > hrLeft || (at3left + 200) > hrLeft) {
+
+                if (at1left > at2left && at1left > at3left) {
+                    alert("At-1 kazandı..")
+                }
+                else if (at2left > at1left && at2left > at3left) {
+                    alert("At-2 kazandı..")
+                }
+                else {
+                    alert("At-3 kazandı..")
+                }
+
+                stopHorses();
+            }
+
+            var random1 = Math.floor(Math.random() * 50);
+            var random2 = Math.floor(Math.random() * 50);
+            var random3 = Math.floor(Math.random() * 50);
+
+            at1left += random1;
+            at2left += random2;
+            at3left += random3;
+
+            document.getElementById('at1').style.left = at1left + "px";
+            document.getElementById('at2').style.left = at2left + "px";
+            document.getElementById('at3').style.left = at3left + "px";
+
+        }, 200);
+
+        function stopHorses() {
+            clearInterval(interval)
+        }
+    }
+
+
+
+
+</script>
+
+</html>
