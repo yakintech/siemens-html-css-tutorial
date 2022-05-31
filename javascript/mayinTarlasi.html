@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .startBtn {
+        #btnStart {
             position: fixed;
             bottom: 20px;
             width: 100px;
@@ -20,18 +20,48 @@
 
 <body>
 
+    <div style="float: right; margin-right:30px">
+        <h1 id="highScore">High Score: 0</h1>
+        <h1 id="points">Points: 0</h1>
+    </div>
+
     <div id="container">
 
     </div>
 
-    <button class="startBtn" onclick="gameStart()">START!</button>
+    <button id="btnStart"  onclick="gameStart()">START!</button>
 
 </body>
 <script>
-    //Oyun başlarken 1 ile 25 arasında RASTGELE 5 adet mayın (sayı) belirle!
+
+
+    var pointsHistory = []
+
+
+    if(localStorage.getItem("pointsHistory")){
+        pointsHistory = localStorage.getItem("pointsHistory").split(',');
+    }
+    else{
+        localStorage.setItem("pointsHistory","")
+    }
+
+    var localHighScore = Number(localStorage.getItem("highScore"))
+
+    //kullanıcı tarayıcısında daha önce bu oyunun score tutulmadıysa!
+    if (localHighScore == undefined || localHighScore == null) {
+        localStorage.setItem("highScore", 0);
+    }
+
+    document.getElementById("highScore").innerHTML = "High Score: " + localHighScore;
 
 
     function gameStart() {
+
+        document.getElementById('btnStart').style.display = 'none'
+
+        var points = 0;
+        document.getElementById("points").innerHTML = "Points: " + points;
+
         document.getElementById("container").innerHTML = "";
         var mines = [];
 
@@ -82,10 +112,26 @@
             //Eğer tıklanılan mayın numarası dizide varsa patlat! ve kırmızı yap!
             var tiklanilanNo = Number(this.id);
 
+            this.disabled = true;
+            this.style.cursor ='not-allowed'
+
             if (mines.includes(tiklanilanNo)) {
 
+                if (points > localHighScore) {
+                    localStorage.setItem("highScore", points);
+                    document.getElementById("highScore").innerHTML = "High Score: " + points;
+                }
+
                 var audio = new Audio('bomb.wav');
+                audio.volume = 0.1;
                 audio.play();
+                document.getElementById('btnStart').style.display = 'inline'
+
+                pointsHistory.push(points);
+                localStorage.setItem("pointsHistory", pointsHistory.join())
+
+                points = 0;
+                document.getElementById("points").innerHTML = "Points: " + points;
 
                 for (i = 1; i <= 25; i++) {
 
@@ -111,19 +157,22 @@
                 audio.play();
 
                 this.style.backgroundColor = 'aqua';
+                points += 10;
+
+                document.getElementById("points").innerHTML = "Points: " + points;
             }
         }
 
         document.addEventListener('contextmenu', function (evt) {
             var btnId = Number(evt.path[0].id)
 
-            if(mines.includes(btnId)){
+            if (mines.includes(btnId)) {
                 document.getElementById(btnId).style.backgroundColor = 'pink'
                 setTimeout(() => {
-                document.getElementById(btnId).style.backgroundColor = '#FCFCFC'
-                    
+                    document.getElementById(btnId).style.backgroundColor = '#FCFCFC'
+
                 }, 500);
-                
+
             }
         })
 
