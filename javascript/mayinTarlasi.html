@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .startBtn {
+            position: fixed;
+            bottom: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+    </div>
+
+    <button class="startBtn" onclick="gameStart()">START!</button>
+
+</body>
+<script>
+    //Oyun başlarken 1 ile 25 arasında RASTGELE 5 adet mayın (sayı) belirle!
+
+
+    function gameStart() {
+        document.getElementById("container").innerHTML = "";
+        var mines = [];
+
+        for (i = 0; i < 5; i++) {
+
+            var randomMine = Math.floor(Math.random() * 25) + 1;
+
+            if (mines.includes(randomMine)) {
+                i--;
+            }
+            else {
+                mines.push(randomMine);
+            }
+
+        }
+        //Sayfa açıldığında 25 tane buton ekranda kare şeklide belirsin
+
+        var btnTop = 0;
+        var btnLeft = 0;
+        for (i = 1; i <= 25; i++) {
+
+            var newButton = document.createElement("button");
+            newButton.style.width = 100 + "px";
+            newButton.style.height = 100 + "px";
+            newButton.style.position = "fixed"
+            newButton.style.left = btnLeft + "px";
+            newButton.onclick = clickMine;
+
+            newButton.id = i;
+
+            if (i % 5 == 1 && i != 1) {
+
+                newButton.style.left = 0 + "px";
+                btnTop += 100;
+                btnLeft = 0;
+
+            }
+            newButton.style.top = btnTop + "px";
+
+            btnLeft += 100
+
+            document.getElementById("container").appendChild(newButton);
+        }
+
+
+        function clickMine() {
+
+            //Eğer tıklanılan mayın numarası dizide varsa patlat! ve kırmızı yap!
+            var tiklanilanNo = Number(this.id);
+
+            if (mines.includes(tiklanilanNo)) {
+
+                var audio = new Audio('bomb.wav');
+                audio.play();
+
+                for (i = 1; i <= 25; i++) {
+
+                    var btnMayin = document.getElementById(i);
+
+                    if (mines.includes(i)) {
+                        btnMayin.style.backgroundColor = 'red'
+                    }
+                    else {
+                        btnMayin.style.backgroundColor = 'aqua'
+
+                    }
+                }
+
+
+                // alert("Kaybettin bebeto!");
+                // if (confirm("Bir daha oynamak ister misin!")) {
+                //     gameStart()
+                // } 
+            }
+            else {
+                var audio = new Audio('click.wav');
+                audio.play();
+
+                this.style.backgroundColor = 'aqua';
+            }
+        }
+
+        document.addEventListener('contextmenu', function (evt) {
+            var btnId = Number(evt.path[0].id)
+
+            if(mines.includes(btnId)){
+                document.getElementById(btnId).style.backgroundColor = 'pink'
+                setTimeout(() => {
+                document.getElementById(btnId).style.backgroundColor = '#FCFCFC'
+                    
+                }, 500);
+                
+            }
+        })
+
+    }
+
+
+
+
+</script>
+
+</html>

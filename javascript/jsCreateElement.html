@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+
+    </div>
+    <div>
+        <input type="text" id="data" />
+        <button onclick="addSpan()">Add Span</button>
+    </div>
+</body>
+<script>
+    //Butona tıkladığında div içerisine inputa girdiği değeri içeren bir SPAN tag ekleyecek
+
+    function addSpan() {
+
+        var hr = document.createElement('hr');
+        var newSpan = document.createElement("span");
+        newSpan.setAttribute("class","title")
+
+        var inputValue = document.getElementById('data').value;
+        newSpan.innerHTML = inputValue;
+
+        document.getElementById('content').appendChild(newSpan)
+        document.getElementById('content').appendChild(hr);
+
+    }
+
+</script>
+
+</html>
