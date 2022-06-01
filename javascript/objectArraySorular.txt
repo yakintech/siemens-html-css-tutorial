@@ -1,0 +1,3 @@
+1) Country si "Germany" olan kaç adet supplier var?
+2) Kaç adet supplier var?
+3) ID si 16 olan supplier ın şehri nedir?
