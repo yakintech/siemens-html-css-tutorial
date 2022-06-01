@@ -1,3 +1,11 @@
 1) Country si "Germany" olan kaç adet supplier var?
 2) Kaç adet supplier var?
 3) ID si 16 olan supplier ın şehri nedir?
+
+* https://northwind.vercel.app/api/products
+
+// Ürünlerin ortalama fiyatı nedir?
+// En pahalı ürünün fiyatı nedir?
+// En ucuz ürünün fiyatı nedir?
+// CategoryId si 3 olan kaç ürün var?
+// Stok adedi 20 den az ürünleri console a yaz
