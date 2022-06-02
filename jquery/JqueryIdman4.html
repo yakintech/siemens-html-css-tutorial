@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <select>
+        <option value="1">Karga</option>
+        <option value="2">Ayı</option>
+        <option value="3">Ciğer</option>
+    </select>
+</body>
+<script>
+    $("select").change(function(){
+
+        var selectedValue = $('select').find(":selected").val();
+        var selectedValue2 = $('select').val();
+
+
+        console.log('Selected value...', selectedValue);
+        console.log('Selected value2...', selectedValue2);
+        console.log('Selected value3...', this.value);
+
+
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptates quam officiis recusandae pariatur
+        perspiciatis, magni ipsa optio explicabo ab sint, rem veritatis labore quae vitae odio voluptatem delectus nam!
+    </p>
+
+    <button>Change PX</button>
+
+</body>
+<script>
+    //10 luk bir yazı boyutu dizisi tanımla (for ile) - 1 ile 100 arasında piksel boyutu. Butona her tıkladığında RANDOM bir yazı boyutunu p ye atasın
+
+    var pxArray = []
+
+    //her dmndüğünde RANDOM 1 ile 100 arasında bir sayı seçip diziye atıyorum
+    for (i = 0; i < 10; i++) {
+
+        var randomPx = Math.floor(Math.random() * 100) + 1;
+
+        pxArray.push(randomPx + "px");
+    }
+
+
+    $("button").click(function(){
+
+        var randomSelect = Math.floor(Math.random() * 10)
+
+        $("p").css("font-size", pxArray[randomSelect] );
+
+    })
+
+</script>
+
+</html>

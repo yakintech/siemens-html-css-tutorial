@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <!-- <script src="./jquery-3.6.0.js"></script> -->
+
+    <script src="./siemens.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="container">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, dolor dignissimos porro voluptatem hic enim maiores quidem cupiditate, nam officia cum ipsum saepe explicabo error quas alias laboriosam accusamus amet.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid delectus dolor aliquam quasi temporibus dicta, adipisci natus explicabo iusto eius inventore perspiciatis quaerat nesciunt odio debitis nihil. Impedit, temporibus voluptatibus.</p>
+    </div>
+    <button onclick="change()">Change Content</button>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="fadeOut()">Fade Out!</button>
+</body>
+<script>
+
+    function fadeOut(){
+
+        $("p").fadeOut(2000);
+
+    }
+
+    function change() {
+        //Döküman üzerindeki p ELEMENTLERİNİ seçiyorum. CSS SELECTORLERI
+        //İÇERİK!
+        $("p").html("Nasıl bildim lan gördün mü ? Sami hocam kayıt almıyorum")
+
+    }
+
+    function changeColor(){
+
+        //css kodu ekliyorum
+        $("p").css("background-color","tomato")
+        $("p").css("font-size","40px")
+
+    }
+
+
+</script>
+
+</html>
