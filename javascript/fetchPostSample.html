@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <label>Name:</label>
+        <input type="text" name="" id="name">
+    </div>
+
+    <div>
+        <label>Description:</label>
+        <input type="text" name="" id="description">
+    </div>
+
+    <div>
+        <button>Add</button>
+    </div>
+
+</body>
+
+<script>
+
+    $("button").click(function () {
+
+        var newCategory = {
+            name: $("#name").val(),
+            description: $("#description").val()
+        }
+
+
+        //JSON.stringify javascript objemi json a çevirir!
+
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newCategory)
+        }
+
+        fetch("https://northwind.vercel.app/api/categories", requestOptions)
+            .then(res => res.json())
+            .then((data) => {
+                console.log('NEW DATA', data);
+            })
+
+    })
+
+</script>
+
+</html>

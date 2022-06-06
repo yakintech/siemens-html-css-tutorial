@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <select id="numbers">
+        <option value="0">Hepsi</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+
+    </select>
+    <ul>
+
+    </ul>
+</body>
+<script>
+
+    var products = [];
+
+    fetch("https://northwind.vercel.app/api/products")
+        .then(res => res.json())
+        .then((data) => {
+
+            products = data;
+
+            data.forEach(element => {
+                $("ul").append("<li>" + element.name + "</li>")
+            });
+
+        })
+
+
+        $('#numbers').change(function () {
+            var count = Number($(this).val())
+
+            if(count == "HEPSİ"){
+
+            }
+            else{
+                var newProducts = products.slice(0,count)
+                console.log('enteresan', newProducts);
+            }
+
+            //js de bir dizinin ilk 30 elemanını almak
+
+        })
+
+    
+
+
+
+</script>
+
+</html>

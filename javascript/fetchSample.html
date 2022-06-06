@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+</body>
+<script>
+
+    //fetch ile sunucuya bir get işlemi yaptım ve res isimli obje bana geldi!!
+    fetch("https://northwind.vercel.app/api/products")
+        .then((res) => res.json())
+        .then((data) => {
+
+            data.forEach(element => {
+                $("ul").append("<li>" + element.name + "</li>")
+            });
+
+        })
+
+
+    function hello() {
+        return "Çağatay"
+    }
+
+
+    var hola = () => {
+        return "Çağatay"
+    }
+
+    var merhaba = () => "Merhaba beni return etti"
+
+</script>
+
+
+</html>

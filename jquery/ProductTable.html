@@ -44,13 +44,11 @@
 <script>
     //Sayfa açıldığında tabloyu doldur.
 
-
-    function getProducts() {
-
         $.ajax({
             url: 'https://northwind.vercel.app/api/products',
             success: function (data) {
 
+     
                 data.forEach(element => {
 
                     $("table").append(
@@ -65,14 +63,13 @@
 
                 });
 
-
-
             }
         })
 
-    }
 
-    getProducts();
+
+   console.log('2');
+
 
 
     $("button").click(function () {
@@ -94,7 +91,7 @@
             type: 'POST',
             data: newProduct,
             success: function (data) {
-                
+                $("table tr").find("tr:gt(0)").remove();
                 getProducts()
             }
         })
