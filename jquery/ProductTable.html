@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <label>Name: </label>
+        <input type="text" id="name">
+    </div>
+
+    <div>
+        <label>Price: </label>
+        <input type="text" id="price">
+    </div>
+
+    <div>
+        <label>Stock: </label>
+        <input type="text" id="stock">
+    </div>
+
+    <button>Add</button>
+
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Unit Price</td>
+            <td>Units In Stock</td>
+        </tr>
+    </table>
+
+</body>
+
+<script>
+    //Sayfa açıldığında tabloyu doldur.
+
+
+    function getProducts() {
+
+        $.ajax({
+            url: 'https://northwind.vercel.app/api/products',
+            success: function (data) {
+
+                data.forEach(element => {
+
+                    $("table").append(
+                        `<tr>  
+                    <td>`+ element.id + `</td>
+                    <td>`+ element.name + `</td>
+                    <td>`+ element.unitPrice + `</td>
+                    <td>`+ element.unitsInStock + `</td>
+
+                        </tr>`
+                    )
+
+                });
+
+
+
+            }
+        })
+
+    }
+
+    getProducts();
+
+
+    $("button").click(function () {
+
+        //id si name olan inputun DEĞERİNİ bir değişkene ATA
+        // var name = $("#name").val()
+        // var name2 = document.getElementById("name").value;
+
+        //bir js objesi oluşturuyorum...
+
+        var newProduct = {
+            name: $("#name").val(),
+            unitPrice: $("#price").val(),
+            unitsInStock: $("#stock").val()
+        }
+
+        $.ajax({
+            url: "https://northwind.vercel.app/api/products",
+            type: 'POST',
+            data: newProduct,
+            success: function (data) {
+                
+                getProducts()
+            }
+        })
+
+    })
+
+</script>
+
+</html>
